@@ -52,7 +52,7 @@ export default function Hero() {
           </div>
         </Reveal>
 
-        <Reveal delay={100}>
+        <Reveal delay={100} className="hidden lg:block">
           <div
             className="rounded-[28px] bg-white p-6 sm:p-7 space-y-4 shadow-[0_12px_32px_-8px_rgba(49,87,255,0.22)]"
             aria-hidden="true"
