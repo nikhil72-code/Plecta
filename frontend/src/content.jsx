@@ -37,7 +37,7 @@ export const valueProp = {
   eyebrow: 'What we’re building',
   items: [
     { label: 'Practice', body: 'Short speaking challenges based on real situations.' },
-    { label: 'Feedback', body: 'A clear picture of how you actually come across.' },
+    { label: 'Feedback', body: 'A clear picture of how you actually come across to others.' },
     { label: 'Progress', body: 'Watch yourself improve, one session at a time.' },
   ],
 };
@@ -45,10 +45,11 @@ export const valueProp = {
 export const features = {
   eyebrow: 'See it in action',
   headline: 'Feedback that actually helps 🎯',
+  intro: 'Record yourself answering a prompt — like “Tell me about yourself” — and get feedback on:',
   body: {
     emoji: '🧍',
     label: 'Body language',
-    body: 'Nail your posture and gestures.',
+    body: 'Nail your posture and gestures with Plecta’s AI analysis.',
   },
   voice: {
     emoji: '🎙️',
@@ -65,11 +66,18 @@ export const features = {
     emoji: '📝',
     label: 'Transcripts',
     body: 'We catch the ums so you don’t have to.',
+    legend: [
+      { color: 'yellow', label: 'Filler words' },
+      { color: 'red', label: 'Rambling' },
+    ],
     segments: [
-      { text: 'So basically, um, ', flagged: true },
-      { text: 'the real problem is our onboarding is too slow', flagged: false },
-      { text: ', you know, like, ', flagged: true },
-      { text: 'and we need to fix that first.', flagged: false },
+      { text: 'So, um, I guess ', type: 'filler' },
+      { text: 'growing up I was always kind of curious about how things worked', type: 'plain' },
+      {
+        text: ' — actually, that reminds me, my brother was the same way, he used to take apart the toaster all the time — ',
+        type: 'rambling',
+      },
+      { text: 'anyway, that curiosity is why I got into engineering.', type: 'plain' },
     ],
   },
   frameworks: {
@@ -81,7 +89,7 @@ export const features = {
   starters: {
     emoji: '💬',
     label: 'Conversation starters',
-    body: 'Never run out of things to say.',
+    body: 'Never run out of things to say, especially in awkward moments.',
     examples: ['What’s been the highlight of your week?', 'What are you looking forward to?'],
   },
 };
@@ -100,7 +108,7 @@ export const whyItMatters = {
       sent to arrest him, using nothing but words.
     </>
   ),
-  closing: 'If communication could move nations, armies and the whole world, imagine what it could do for you.',
+  closing: 'If communication could move nations, armies and the whole world, imagine what it could do for you, your career and your relationships.',
 };
 
 export const waitlistSection = {

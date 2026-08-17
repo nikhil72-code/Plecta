@@ -28,6 +28,17 @@ function Body({ children }) {
   return <p className="mt-3 text-sm text-ink-muted leading-relaxed">{children}</p>;
 }
 
+const HIGHLIGHT_CLASSES = {
+  filler: 'bg-yellow-200/70 text-ink rounded-sm px-0.5',
+  rambling: 'bg-red-200/70 text-ink rounded-sm px-0.5',
+  plain: '',
+};
+
+const LEGEND_DOT_CLASSES = {
+  yellow: 'bg-yellow-300',
+  red: 'bg-red-300',
+};
+
 export default function Features() {
   return (
     <section className="border-t border-line">
@@ -37,6 +48,7 @@ export default function Features() {
           <h2 className="mt-2 text-2xl sm:text-3xl font-semibold text-ink tracking-tight">
             {features.headline}
           </h2>
+          <p className="mt-3 text-lg text-ink-muted leading-relaxed">{features.intro}</p>
         </Reveal>
 
         <div className="mt-10 grid sm:grid-cols-2 gap-6">
@@ -71,18 +83,20 @@ export default function Features() {
           <Panel delay={120} className="sm:col-span-2">
             <Header emoji={features.transcript.emoji}>{features.transcript.label}</Header>
             <p className="mt-4 text-sm leading-loose">
-              {features.transcript.segments.map((seg, i) =>
-                seg.flagged ? (
-                  <span key={i} className="text-ink-muted/50 line-through decoration-1">
-                    {seg.text}
-                  </span>
-                ) : (
-                  <span key={i} className="bg-accent/15 text-ink rounded-md px-1.5 py-0.5">
-                    {seg.text}
-                  </span>
-                )
-              )}
+              {features.transcript.segments.map((seg, i) => (
+                <span key={i} className={HIGHLIGHT_CLASSES[seg.type]}>
+                  {seg.text}
+                </span>
+              ))}
             </p>
+            <div className="mt-3 flex items-center gap-4">
+              {features.transcript.legend.map((item) => (
+                <span key={item.label} className="flex items-center gap-1.5 text-xs text-ink-muted">
+                  <span className={`h-2.5 w-2.5 rounded-full ${LEGEND_DOT_CLASSES[item.color]}`} />
+                  {item.label}
+                </span>
+              ))}
+            </div>
             <Body>{features.transcript.body}</Body>
           </Panel>
 
