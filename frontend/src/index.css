@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Brand palette as CSS variables (RGB triplets so Tailwind's alpha
+   modifiers, e.g. bg-accent/10, work). Change these to re-theme the site. */
+:root {
+  --color-bg: 247 246 242; /* #F7F6F2 warm off-white */
+  --color-bg-secondary: 233 237 247; /* #E9EDF7 */
+  --color-surface: 255 255 255; /* #FFFFFF */
+  --color-text: 11 18 32; /* #0B1220 deep navy */
+  --color-text-secondary: 83 96 113; /* #536071 muted blue-grey */
+  --color-line: 223 221 214; /* subtle warm border */
+  --color-accent: 49 87 255; /* #3157FF cobalt */
+  --color-accent-dark: 39 70 204; /* cobalt, darkened for hover */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: rgb(var(--color-bg));
+  color: rgb(var(--color-text));
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  opacity: 0;
+  animation: fade-up 0.4s ease-out forwards;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.45s ease-out, transform 0.45s ease-out;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
