@@ -42,11 +42,11 @@ export default function Features() {
         <div className="mt-10 grid sm:grid-cols-2 gap-6">
           <Panel>
             <Header emoji={features.body.emoji}>{features.body.label}</Header>
-            <div className="mt-4 mx-auto w-40 sm:w-44 aspect-[267/430] rounded-2xl overflow-hidden bg-accent/5">
+            <div className="mt-4 mx-auto w-40 sm:w-44 aspect-[267/380] rounded-2xl overflow-hidden bg-accent/5">
               <img
                 src="/images/body-language.png"
                 alt=""
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover object-bottom"
               />
             </div>
             <Body>{features.body.body}</Body>
